@@ -1,5 +1,10 @@
 # todo-list
 
+## open json-server
+open terminal and cd to src floder
+```
+json-server todo-list.json
+```
 ## Project setup
 ```
 npm install
@@ -22,3 +27,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
