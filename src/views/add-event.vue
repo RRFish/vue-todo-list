@@ -4,7 +4,7 @@
 		<h3 class="title">標題</h3>
 		<input v-model="event.title" type="text">
 		<h3 class="title">日期</h3>
-		<datetimepicker class="datetimepicker"></datetimepicker>
+		<datetimepicker ref="datetimepicker" class="datetimepicker"></datetimepicker>
 		<h3 class="title">內容</h3>
 		<textarea v-model="event.content" cols="30" rows="10"></textarea>
 		<div>
@@ -33,6 +33,8 @@ export default {
     },
     methods:{
         addEventAndBack(){
+            this.event.date=this.$refs.datetimepicker.getformatDatetime();
+            console.log(this.event)
             this.addEvent(this.event);
             this.backToLastPage();
         },
