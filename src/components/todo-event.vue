@@ -1,5 +1,6 @@
 <template>
-    <router-link to="/events" tag="button">
+    <!-- <router-link to="/events" tag="button"> -->
+    <button @click="showEvent">
         <div class="card" @click="setCurrentEvent(event)">
             <div>
                 <span>標題:{{event.title}}</span> |
@@ -9,20 +10,33 @@
                 <span>內容:{{fixContent}}</span>
             </div>
         </div>
-    </router-link>
+    </button>
+
+    <!-- </router-link> -->
 
 </template>
 
 <script> 
 import {mapMutations} from 'vuex'
 export default {
+    created(){
+        console.log(this.$router)
+        console.log(this.index)
+    },
     props:{
         event:{
             type:Object,
             required:true
+        },
+        index:{
+            type:Number,
+            required:true
         }
     },
     methods:{
+        showEvent(){
+            this.$router.push({ path: `/events#${this.index}` })
+        },
         ...mapMutations([
             'setCurrentEvent'
         ])

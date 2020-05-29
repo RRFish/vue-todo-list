@@ -2,9 +2,8 @@
     <div>
         <h1>{{$store.state.todoList.title}}</h1>
         <div class="list">
-            <todoEvent v-for="(event,index) in events" v-bind:key="'event'+index" :event="event"></todoEvent>
+            <todoEvent v-for="(event,index) in events" v-bind:key="'event'+index" :event="event" :index="index"></todoEvent>
         </div>
-
     </div>
 
 </template>

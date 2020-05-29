@@ -1,10 +1,10 @@
 <template>
 
     <div>
-        <h1>標題:{{showEvent.title}}</h1>
-        <h3>日期:{{showEvent.date}}</h3>
+        <h1>標題:{{events[eventIndex].title}}</h1>
+        <h3>日期:{{events[eventIndex].date}}</h3>
         <p>內容:</p>
-        <div class="content">{{showEvent.content}}</div>
+        <div class="content">{{events[eventIndex].content}}</div>
         <div class="btn">
             <button @click="removeEventAndBack">移除此事件</button>
             <button @click="backToLastPage">返回</button>
@@ -14,11 +14,23 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+
 export default {
+    created(){
+        const index = window.location.hash.substr(1);
+        this.eventIndex = index;
+    },
+    data(){
+        return {
+            eventIndex:0
+        }
+    },
     computed:{
-        ...mapState([
-            'showEvent'
-        ])
+        ...mapState({
+            events:(state)=>{
+                return state.todoList.events;
+            }}
+        )
     },
     methods:{
         removeEventAndBack(){
