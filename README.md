@@ -1,9 +1,9 @@
 # todo-list
 
 ## open json-server
-open terminal and cd to src floder
+open terminal in root floder
 ```
-json-server todo-list.json
+json-server ./src/todo-list.json
 ```
 ## Project setup
 ```
